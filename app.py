@@ -3,7 +3,7 @@ from PIL import Image
 import pickle
 
 
-knn_model = pickle.load(open('./Model/knn_model.pkl', 'rb'))
+knn_model = pickle.load(open('Model/knn_model.pkl', 'rb'))
 
 def run():
     img1 = Image.open('bank.png')
