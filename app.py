@@ -29,15 +29,15 @@ def run():
     dep_options = list(range(len(dep_display)))
     dep = st.selectbox("Dependents",  dep_options, format_func=lambda x: dep_display[x])
 
-    ## For edu
+    ## For education
     edu_display = ('Not Graduate','Graduate')
     edu_options = list(range(len(edu_display)))
     edu = st.selectbox("Education",edu_options, format_func=lambda x: edu_display[x])
 
     ## For emp status
-    emp_display = ('Job','Business')
+    emp_display = ('Yes','No')
     emp_options = list(range(len(emp_display)))
-    emp = st.selectbox("Employment Status",emp_options, format_func=lambda x: emp_display[x])
+    emp = st.selectbox("Self Employed",emp_options, format_func=lambda x: emp_display[x])
 
     ## For Property status
     prop_display = ('Rural','Semi-Urban','Urban')
@@ -45,7 +45,7 @@ def run():
     prop = st.selectbox("Property Area",prop_options, format_func=lambda x: prop_display[x])
 
     ## For Credit Score
-    cred_display = ('Between 300 to 500','Above 500')
+    cred_display = ('0','1')
     cred_options = list(range(len(cred_display)))
     cred = st.selectbox("Credit Score",cred_options, format_func=lambda x: cred_display[x])
 
