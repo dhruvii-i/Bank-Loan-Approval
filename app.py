@@ -3,19 +3,16 @@ from PIL import Image
 import pickle5 as pickle
 
 
-knn_model = pickle.load(open('Model/knn_model.pkl', 'rb'))
+model = pickle.load(open('Model/knn_model.pkl', 'rb'))
 
 def run():
-    img1 = Image.open('bank.png')
-    img1 = img1.resize((156,145))
-    st.image(img1,use_column_width=False)
+    
     st.title("Bank Loan Prediction using Machine Learning")
 
     ## Account No
     account_no = st.text_input('Account number')
 
-    ## Full Name
-    fn = st.text_input('Full Name')
+    
 
     ## For gender
     gen_display = ('Female','Male')
@@ -85,13 +82,13 @@ def run():
         ans = int("".join(lc))
         if ans == 0:
             st.error(
-                "Hello: " + fn +" || "
+               
                 "Account number: "+account_no +' || '
                 'According to our Calculations, you will not get the loan from Bank'
             )
         else:
             st.success(
-                "Hello: " + fn +" || "
+                
                 "Account number: "+account_no +' || '
                 'Congratulations!! you will get the loan from Bank'
             )
