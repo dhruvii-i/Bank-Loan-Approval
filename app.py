@@ -73,26 +73,35 @@ def run():
         if dur == 4:
             duration = 480
 
-    if st.button("Submit"):
-        # Format the features as a list of lists
-        features = [[gen, mar, dep, edu, emp, mon_income, co_mon_income, loan_amt, duration, cred, prop]]
-        print(features)
-        
-        # Make sure to cast the features to float before predicting
-        features = [[float(val) for val in feature] for feature in features]
-        
-        # Predict using the user's input
-        prediction = model.predict(features)
+if st.button("Submit"):
+    # Extract feature values from widgets
+    gen = int(gen)  # Assuming 'gen' is a number, change it to int or float if necessary
+    mar = int(mar)  # Assuming 'mar' is a number
+    dep = int(dep)  # Assuming 'dep' is a number
+    edu = int(edu)  # Assuming 'edu' is a number
+    emp = int(emp)  # Assuming 'emp' is a number
+    duration = int(dur)  # Assuming 'dur' is a number
 
-        if prediction[0] == 0:
-            st.error(
-                "Account number: " + account_no + ' || ' +
-                'According to our calculations, you will not get the loan from the bank'
-            )
-        else:
-            st.success(
-                "Account number: " + account_no + ' || ' +
-                'Congratulations!! You will get the loan from the bank'
-            )
+    # Format the features as a list of lists
+    features = [[gen, mar, dep, edu, emp, mon_income, co_mon_income, loan_amt, duration, cred, prop]]
+    print(features)
+
+    # Make sure to cast the features to float before predicting
+    features = [[float(val) for val in feature] for feature in features]
+
+    # Predict using the user's input
+    prediction = model.predict(features)
+
+    if prediction[0] == 0:
+        st.error(
+            "Account number: " + account_no + ' || ' +
+            'According to our calculations, you will not get the loan from the bank'
+        )
+    else:
+        st.success(
+            "Account number: " + account_no + ' || ' +
+            'Congratulations!! You will get the loan from the bank'
+        )
+
 
 run()
