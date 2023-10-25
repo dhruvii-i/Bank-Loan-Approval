@@ -1,6 +1,6 @@
 import streamlit as st
 from PIL import Image
-import pickle
+import pickle5 as pickle
 
 
 knn_model = pickle.load(open('Model/knn_model.pkl', 'rb'))
